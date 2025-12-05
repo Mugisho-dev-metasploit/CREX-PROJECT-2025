@@ -1,0 +1,104 @@
+# ============================================
+# .gitignore - CREx Project
+# Fichiers à exclure du contrôle de version
+# ============================================
+
+# Fichiers de développement et tests
+test-db-connection.php
+fix-testimonials-table.php
+generate-password-hash.php
+phpinfo.php
+migrate-admin-users.php
+install-database.php
+init-settings.php
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+error_log
+access_log
+
+# Fichiers de configuration sensibles (production)
+config.production.php
+.env
+.env.local
+.env.production
+
+# Fichiers de cache
+cache/
+tmp/
+*.cache
+
+# Fichiers de sauvegarde
+*.sql.backup
+backups/
+*.dump
+
+# Fichiers d'éditeur
+.vscode/
+.idea/
+*.swp
+*.swo
+*_flymake.php
+*_flymake
+.netrwhist
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Fichiers de documentation de développement (garder seulement README.md)
+ADMIN_DATABASE_THEME_FIXES_FINAL.md
+ADMIN_DATABASE_THEME_FIXES.md
+THEME_FIXES_SUMMARY.md
+THEME_WHITE_TEXT_FIXES.md
+THEME_COMPLETE_FIXES_SUMMARY.md
+THEME_IMPROVEMENTS.md
+DATABASE_FINAL_SUMMARY.md
+DATABASE_SUMMARY.md
+DATABASE-CHANGELOG.md
+ENHANCEMENT-GUIDE.md
+ADMIN-UNIFIED-GUIDE.md
+ADMIN-GUIDE.md
+ADMIN_DATABASE_GUIDE.md
+
+# Fichiers de développement
+readme-redist-bins.txt
+
+# Fichiers uploadés par les utilisateurs (garder la structure mais pas le contenu)
+assets/images/gallery/*
+!assets/images/gallery/.gitkeep
+
+# Fichiers minifiés (générés automatiquement)
+*.min.css
+*.min.js
+!assets/css/*.min.css
+!assets/js/*.min.js
+
+# Fichiers de build
+build/
+dist/
+node_modules/
+
+# Fichiers de préparation production
+PRODUCTION_REPORT_*.txt
+crex_db_export_*.sql
+*_optimized.*
+
+# Fichiers de configuration locale
+config.local.php
+

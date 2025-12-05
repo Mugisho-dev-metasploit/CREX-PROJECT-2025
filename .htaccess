@@ -1,0 +1,233 @@
+# ============================================
+# .htaccess - CREx Production
+# Optimisations, sécurité et redirections
+# ============================================
+
+# Activer le moteur de réécriture
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Forcer HTTPS (décommenter en production)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Forcer www (ou non-www) - décommenter et choisir
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Bloquer l'accès aux fichiers sensibles
+    RewriteRule ^config\.php$ - [F,L]
+    RewriteRule ^config\.production\.php$ - [F,L]
+    RewriteRule ^\.git - [F,L]
+    RewriteRule ^\.gitignore$ - [F,L]
+    RewriteRule ^\.htaccess$ - [F,L]
+    
+    # Bloquer l'accès aux fichiers de test
+    RewriteRule ^test-.*\.php$ - [F,L]
+    RewriteRule ^fix-.*\.php$ - [F,L]
+    RewriteRule ^generate-.*\.php$ - [F,L]
+    RewriteRule ^phpinfo\.php$ - [F,L]
+    RewriteRule ^migrate-.*\.php$ - [F,L]
+    RewriteRule ^install-.*\.php$ - [F,L]
+    RewriteRule ^init-.*\.php$ - [F,L]
+</IfModule>
+
+# ============================================
+# SÉCURITÉ
+# ============================================
+
+# Désactiver la liste des répertoires
+Options -Indexes
+
+# Protéger les fichiers sensibles
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|backup)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Protéger les fichiers de configuration
+<FilesMatch "^(config|config\.production)\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher l'accès aux fichiers de documentation
+<FilesMatch "\.md$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    # Protection XSS
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Empêcher le MIME sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Protection contre le clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # Politique de référent
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (ajuster selon vos besoins)
+    # Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
+</IfModule>
+
+# Désactiver l'affichage des erreurs PHP en production
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value error_log logs/php_errors.log
+</IfModule>
+
+# ============================================
+# COMPRESSION GZIP
+# ============================================
+
+<IfModule mod_deflate.c>
+    # Compresser HTML, CSS, JavaScript, Text, XML et fonts
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/atom+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/truetype
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE application/font-woff
+    AddOutputFilterByType DEFLATE application/font-woff2
+</IfModule>
+
+# ============================================
+# CACHE NAVIGATEUR
+# ============================================
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS et JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    
+    # Fonts
+    ExpiresByType font/truetype "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # Par défaut
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# Headers de cache
+<IfModule mod_headers.c>
+    # Cache pour les images
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    # Cache pour CSS et JS
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    
+    # Pas de cache pour HTML
+    <FilesMatch "\.(html|htm|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# ============================================
+# TYPES MIME
+# ============================================
+
+<IfModule mod_mime.c>
+    # WebP
+    AddType image/webp .webp
+    
+    # Fonts
+    AddType font/woff .woff
+    AddType font/woff2 .woff2
+    AddType font/truetype .ttf
+    AddType font/opentype .otf
+    
+    # JavaScript
+    AddType application/javascript .js
+    AddType application/json .json
+</IfModule>
+
+# ============================================
+# LIMITES DE TAILLE
+# ============================================
+
+# Limiter la taille des uploads (si mod_php est disponible)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 30
+    php_value max_input_time 30
+</IfModule>
+
+# ============================================
+# PROTECTION CONTRE LES HOTLINKS
+# ============================================
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?votredomaine\.com [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,L]
+</IfModule>
+
+# ============================================
+# URLS PROPRES (Optionnel)
+# ============================================
+
+# Exemple : transformer /page.php en /page
+# <IfModule mod_rewrite.c>
+#     RewriteCond %{REQUEST_FILENAME} !-f
+#     RewriteCond %{REQUEST_FILENAME} !-d
+#     RewriteRule ^([^\.]+)$ $1.php [NC,L]
+# </IfModule>
+
+# ============================================
+# REDIRECTION D'ERREUR 404
+# ============================================
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# ============================================
+# ENCODAGE
+# ============================================
+
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+</IfModule>
+

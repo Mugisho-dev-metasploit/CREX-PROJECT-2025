@@ -1,0 +1,152 @@
+/**
+ * Theme White Text Fixes - CREx
+ * Corrections spécifiques pour les textes blancs qui deviennent invisibles en mode clair
+ * Garantit que tous les textes restent lisibles dans les deux modes
+ */
+
+/* ============================================
+   OVERRIDES GLOBAUX POUR TEXTES BLANCS
+   ============================================ */
+
+/* Les textes blancs génériques deviennent sombres en mode clair */
+html.light-mode .text-white,
+html[data-theme="light"] .text-white {
+  color: var(--text-primary) !important;
+}
+
+/* Exception : textes sur fonds colorés (gradients, overlays) restent blancs */
+html.light-mode [class*="hero"],
+html.light-mode [class*="cta"],
+html.light-mode [class*="overlay"],
+html.light-mode [class*="stat"],
+html[data-theme="light"] [class*="hero"],
+html[data-theme="light"] [class*="cta"],
+html[data-theme="light"] [class*="overlay"],
+html[data-theme="light"] [class*="stat"] {
+  /* Ces éléments sont sur des fonds colorés, donc le texte reste blanc */
+}
+
+/* ============================================
+   ÉLÉMENTS SPÉCIFIQUES SUR FONDS COLORÉS
+   ============================================ */
+
+/* Hero sections - textes sur overlays colorés */
+html.light-mode .hero-text,
+html.light-mode .hero-title,
+html.light-mode .hero-badge,
+html.light-mode .hero-description,
+html[data-theme="light"] .hero-text,
+html[data-theme="light"] .hero-title,
+html[data-theme="light"] .hero-badge,
+html[data-theme="light"] .hero-description {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* CTA sections - textes sur fonds colorés */
+html.light-mode .cta-text,
+html.light-mode .cta-text h2,
+html.light-mode .cta-badge,
+html.light-mode .cta-benefits li,
+html.light-mode .btn-cta-secondary,
+html.light-mode .cta-contact-info a,
+html[data-theme="light"] .cta-text,
+html[data-theme="light"] .cta-text h2,
+html[data-theme="light"] .cta-badge,
+html[data-theme="light"] .cta-benefits li,
+html[data-theme="light"] .btn-cta-secondary,
+html[data-theme="light"] .cta-contact-info a {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* Stats sur fonds colorés */
+html.light-mode .stat-number,
+html.light-mode .stat-label,
+html[data-theme="light"] .stat-number,
+html[data-theme="light"] .stat-label {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* Overlay text */
+html.light-mode .overlay-text,
+html.light-mode .installation-number,
+html[data-theme="light"] .overlay-text,
+html[data-theme="light"] .installation-number {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* About hero slider */
+html.light-mode .about-hero-slider .about-hero__text,
+html.light-mode .about-hero-slider .about-hero__text h1,
+html[data-theme="light"] .about-hero-slider .about-hero__text,
+html[data-theme="light"] .about-hero-slider .about-hero__text h1 {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* Lightbox - textes sur fond sombre */
+html.light-mode .lightbox-caption,
+html.light-mode .lightbox-close,
+html.light-mode .lightbox-prev,
+html.light-mode .lightbox-next,
+html[data-theme="light"] .lightbox-caption,
+html[data-theme="light"] .lightbox-close,
+html[data-theme="light"] .lightbox-prev,
+html[data-theme="light"] .lightbox-next {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* Badges et icônes sur fonds colorés */
+html.light-mode .detail-badge,
+html.light-mode .team-badge,
+html.light-mode .feature-icon,
+html.light-mode .advantage-icon,
+html.light-mode .testimonial-avatar,
+html.light-mode .testimonial-avatar-services,
+html[data-theme="light"] .detail-badge,
+html[data-theme="light"] .team-badge,
+html[data-theme="light"] .feature-icon,
+html[data-theme="light"] .advantage-icon,
+html[data-theme="light"] .testimonial-avatar,
+html[data-theme="light"] .testimonial-avatar-services {
+  color: var(--text-on-primary) !important;
+}
+
+/* Stat boxes sur gradients */
+html.light-mode .installations-overview .stat-box,
+html[data-theme="light"] .installations-overview .stat-box {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* Appointment hero */
+html.light-mode .appointment-hero,
+html[data-theme="light"] .appointment-hero {
+  color: var(--text-on-colored-bg) !important;
+}
+
+/* ============================================
+   GARANTIR LA LISIBILITÉ
+   ============================================ */
+
+/* S'assurer que les textes sur fonds clairs ne sont pas blancs */
+html.light-mode *:not([class*="hero"]):not([class*="cta"]):not([class*="overlay"]):not([class*="stat"]):not([class*="lightbox"]) {
+  /* Les textes normaux ne doivent pas être blancs en mode clair */
+}
+
+/* Forcer les textes sur fonds clairs à être sombres */
+html.light-mode .card,
+html.light-mode .modal,
+html.light-mode .form-control,
+html.light-mode .table,
+html[data-theme="light"] .card,
+html[data-theme="light"] .modal,
+html[data-theme="light"] .form-control,
+html[data-theme="light"] .table {
+  color: var(--text-primary) !important;
+}
+
+html.light-mode .card *:not([class*="badge"]):not([class*="icon"]):not([class*="avatar"]),
+html.light-mode .modal *:not([class*="badge"]):not([class*="icon"]):not([class*="avatar"]),
+html[data-theme="light"] .card *:not([class*="badge"]):not([class*="icon"]):not([class*="avatar"]),
+html[data-theme="light"] .modal *:not([class*="badge"]):not([class*="icon"]):not([class*="avatar"]) {
+  color: inherit;
+}
+

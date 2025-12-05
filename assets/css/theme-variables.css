@@ -1,0 +1,333 @@
+/**
+ * Theme Variables - CREx
+ * Système centralisé de variables CSS pour le mode clair et sombre
+ * Garantit la cohérence visuelle sur tout le site
+ */
+
+:root {
+    /* ============================================
+       COULEURS PRIMAIRES
+       ============================================ */
+    --color-primary: #4AB0D9;
+    --color-primary-dark: #3A9BC7;
+    --color-primary-light: #6BC5E8;
+    --color-primary-hover: #3284ad;
+    --color-primary-gradient: linear-gradient(135deg, #4AB0D9 0%, #3A9BC7 100%);
+    
+    --color-secondary: #2c3e50;
+    --color-secondary-light: #6C757D;
+    
+    /* ============================================
+       COULEURS DE STATUT
+       ============================================ */
+    --color-success: #28a745;
+    --color-success-light: #d4edda;
+    --color-success-dark: #1e7e34;
+    --color-danger: #dc3545;
+    --color-danger-light: #f8d7da;
+    --color-danger-dark: #c82333;
+    --color-warning: #ffc107;
+    --color-warning-light: #fff3cd;
+    --color-warning-dark: #e0a800;
+    --color-info: #17a2b8;
+    --color-info-light: #d1ecf1;
+    --color-info-dark: #138496;
+    
+    /* ============================================
+       MODE CLAIR (Défaut)
+       ============================================ */
+    --bg-primary: #F5F7FA;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F5F5DC;
+    --bg-hover: #E9ECEF;
+    --bg-overlay: rgba(255, 255, 255, 0.95);
+    
+    --text-primary: #222222;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --text-inverse: #FFFFFF;
+    
+    --border-color: #E3F6FD;
+    --border-color-light: #F0F0F0;
+    --border-color-dark: #D0D0D0;
+    
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --shadow-primary: 0 4px 12px rgba(74, 176, 217, 0.25);
+    
+    --link-color: #4AB0D9;
+    --link-hover-color: #3284ad;
+    
+    --input-bg: #FFFFFF;
+    --input-border: #D0D0D0;
+    --input-focus-border: #4AB0D9;
+    --input-text: #222222;
+    --input-placeholder: #999999;
+    
+    --card-bg: #FFFFFF;
+    --card-border: #E3F6FD;
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    
+    --header-bg: #FFFFFF;
+    --header-text: #222222;
+    --header-border: #E3F6FD;
+    
+    --footer-bg: #004E7C;
+    --footer-text: #FFFFFF;
+    
+    --code-bg: #F5F5F5;
+    --code-text: #222222;
+    --code-border: #E0E0E0;
+    
+    --table-bg: #FFFFFF;
+    --table-header-bg: #4AB0D9;
+    --table-header-text: #FFFFFF;
+    --table-row-hover: #F8F9FA;
+    --table-border: #E3F6FD;
+    
+    --modal-bg: #FFFFFF;
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --modal-text: #222222;
+    
+    --button-primary-bg: #4AB0D9;
+    --button-primary-text: #FFFFFF;
+    --button-primary-hover: #3A9BC7;
+    
+    --button-secondary-bg: #6C757D;
+    --button-secondary-text: #FFFFFF;
+    --button-secondary-hover: #5A6268;
+    
+    --button-outline-border: #4AB0D9;
+    --button-outline-text: #4AB0D9;
+    --button-outline-hover-bg: #4AB0D9;
+    --button-outline-hover-text: #FFFFFF;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #4AB0D9 0%, #3A9BC7 100%);
+    --gradient-hero: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 100%);
+    --gradient-card: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+}
+
+/* ============================================
+   MODE SOMBRE
+   ============================================ */
+html.dark-mode,
+html[data-theme="dark"],
+.dark-mode {
+    --bg-primary: #0D1117;
+    --bg-secondary: #161B22;
+    --bg-tertiary: #1C2128;
+    --bg-hover: #21262D;
+    --bg-overlay: rgba(13, 17, 23, 0.95);
+    
+    --text-primary: #F0F6FC;
+    --text-secondary: #C9D1D9;
+    --text-muted: #8B949E;
+    --text-inverse: #0D1117;
+    --text-on-colored-bg: #FFFFFF; /* Texte sur fonds colorés reste blanc en dark mode aussi */
+    --text-on-primary: #FFFFFF; /* Texte sur fond primaire reste blanc */
+    
+    --border-color: #30363D;
+    --border-color-light: #21262D;
+    --border-color-dark: #484F58;
+    
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.8);
+    --shadow-primary: 0 4px 12px rgba(88, 166, 255, 0.3);
+    
+    --link-color: #58A6FF;
+    --link-hover-color: #79C0FF;
+    
+    --input-bg: #161B22;
+    --input-border: #30363D;
+    --input-focus-border: #58A6FF;
+    --input-text: #F0F6FC;
+    --input-placeholder: #8B949E;
+    
+    --card-bg: #161B22;
+    --card-border: #30363D;
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    
+    --header-bg: #161B22;
+    --header-text: #F0F6FC;
+    --header-border: #30363D;
+    
+    --footer-bg: #0D1117;
+    --footer-text: #C9D1D9;
+    
+    --code-bg: #161B22;
+    --code-text: #F0F6FC;
+    --code-border: #30363D;
+    
+    --table-bg: #161B22;
+    --table-header-bg: #58A6FF;
+    --table-header-text: #0D1117;
+    --table-row-hover: #21262D;
+    --table-border: #30363D;
+    
+    --modal-bg: #161B22;
+    --modal-overlay: rgba(0, 0, 0, 0.7);
+    --modal-text: #F0F6FC;
+    
+    --button-primary-bg: #58A6FF;
+    --button-primary-text: #0D1117;
+    --button-primary-hover: #79C0FF;
+    
+    --button-secondary-bg: #484F58;
+    --button-secondary-text: #F0F6FC;
+    --button-secondary-hover: #5A6268;
+    
+    --button-outline-border: #58A6FF;
+    --button-outline-text: #58A6FF;
+    --button-outline-hover-bg: #58A6FF;
+    --button-outline-hover-text: #0D1117;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #58A6FF 0%, #79C0FF 100%);
+    --gradient-hero: linear-gradient(135deg, #161B22 0%, #1C2128 100%);
+    --gradient-card: linear-gradient(135deg, #161B22 0%, #21262D 100%);
+    
+    /* Ajustements pour le contraste */
+    --color-primary: #58A6FF;
+    --color-primary-dark: #79C0FF;
+    --color-primary-light: #9EC5FF;
+    --color-primary-hover: #79C0FF;
+}
+
+/* ============================================
+   MODE CLAIR (Explicite pour cohérence)
+   ============================================ */
+html.light-mode,
+html[data-theme="light"],
+.light-mode {
+    --bg-primary: #F5F7FA;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F5F5DC;
+    --bg-hover: #E9ECEF;
+    --bg-overlay: rgba(255, 255, 255, 0.95);
+    
+    --text-primary: #222222;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --text-inverse: #FFFFFF;
+    
+    --border-color: #E3F6FD;
+    --border-color-light: #F0F0F0;
+    --border-color-dark: #D0D0D0;
+    
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --shadow-primary: 0 4px 12px rgba(74, 176, 217, 0.25);
+    
+    --link-color: #4AB0D9;
+    --link-hover-color: #3284ad;
+    
+    --input-bg: #FFFFFF;
+    --input-border: #D0D0D0;
+    --input-focus-border: #4AB0D9;
+    --input-text: #222222;
+    --input-placeholder: #999999;
+    
+    --card-bg: #FFFFFF;
+    --card-border: #E3F6FD;
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    
+    --header-bg: #FFFFFF;
+    --header-text: #222222;
+    --header-border: #E3F6FD;
+    
+    --footer-bg: #004E7C;
+    --footer-text: #FFFFFF;
+    
+    --code-bg: #F5F5F5;
+    --code-text: #222222;
+    --code-border: #E0E0E0;
+    
+    --table-bg: #FFFFFF;
+    --table-header-bg: #4AB0D9;
+    --table-header-text: #FFFFFF;
+    --table-row-hover: #F8F9FA;
+    --table-border: #E3F6FD;
+    
+    --modal-bg: #FFFFFF;
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --modal-text: #222222;
+    
+    --button-primary-bg: #4AB0D9;
+    --button-primary-text: #FFFFFF;
+    --button-primary-hover: #3A9BC7;
+    
+    --button-secondary-bg: #6C757D;
+    --button-secondary-text: #FFFFFF;
+    --button-secondary-hover: #5A6268;
+    
+    --button-outline-border: #4AB0D9;
+    --button-outline-text: #4AB0D9;
+    --button-outline-hover-bg: #4AB0D9;
+    --button-outline-hover-text: #FFFFFF;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #4AB0D9 0%, #3A9BC7 100%);
+    --gradient-hero: linear-gradient(135deg, #E0F7FA 0%, #B2EBF2 100%);
+    --gradient-card: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+    
+    /* Réinitialisation des couleurs primaires */
+    --color-primary: #4AB0D9;
+    --color-primary-dark: #3A9BC7;
+    --color-primary-light: #6BC5E8;
+    --color-primary-hover: #3284ad;
+}
+
+/* ============================================
+   TRANSITIONS GLOBALES
+   ============================================ */
+*,
+*::before,
+*::after {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                opacity 0.3s ease;
+}
+
+/* Exclure les animations et éléments qui ne doivent pas transitionner */
+img,
+svg,
+video,
+iframe,
+canvas,
+[style*="transition"],
+.no-transition {
+    transition: none !important;
+}
+
+/* ============================================
+   UTILITAIRES DE THÈME
+   ============================================ */
+.theme-transition-ready {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Amélioration du contraste pour l'accessibilité */
+@media (prefers-contrast: high) {
+    :root {
+        --text-primary: #000000;
+        --text-secondary: #333333;
+    }
+    
+    html.dark-mode,
+    html[data-theme="dark"] {
+        --text-primary: #FFFFFF;
+        --text-secondary: #E0E0E0;
+        --bg-primary: #000000;
+        --bg-secondary: #1A1A1A;
+    }
+}
+

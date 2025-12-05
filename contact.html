@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - CREx</title>
+  <script>
+    // Inline theme initialization to prevent FOUC
+    (function(){const t=localStorage.getItem('crex-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const h=document.documentElement;h.classList.remove('dark-mode','light-mode');h.setAttribute('data-theme',t);h.classList.add(t==='dark'?'dark-mode':'light-mode');})();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  <script src="assets/js/theme-manager.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header animate-slide-down">
+    <div class="container header-flex">
+      <div class="logo animate-fade-in">
+        <img src="https://cdn.pixabay.com/photo/2017/04/03/01/41/logo-2191012_1280.png" alt="Logo CREx" height="48">
+        <span>CREx</span>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-item"><a href="index.html">Accueil</a></li>
+          <li class="nav-item"><a href="about.html">À propos</a></li>
+          <li class="nav-item"><a href="services.php">Services</a></li>
+          <li class="nav-item"><a href="gallery.php">Galerie</a></li>
+          <li class="nav-item"><a href="contact.html" class="current">Contact</a></li>
+          <li class="nav-item"><a href="appointment.html">Rendez-vous</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" aria-label="Basculer le thème" type="button">
+        <span class="theme-icon moon-icon">🌙</span>
+      </button>
+      <button class="burger" aria-label="Menu mobile">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="contact-hero-section" data-scroll>
+    <div class="contact-hero-background">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80" alt="Contact CREx">
+    </div>
+    <div class="contact-hero-overlay"></div>
+    <div class="container contact-hero-content">
+      <div class="contact-hero-text animate-fade-up" data-scroll>
+        <span class="hero-badge animate-bounce">📞 Contact</span>
+        <h1>Contactez le Centre CREx</h1>
+        <p>Nous sommes à votre écoute pour toute question, prise de rendez-vous ou information complémentaire.</p>
+        <a href="#contact-form" class="btn-primary pulse-animation">
+          <span>Envoyer un message</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION NOS COORDONNÉES -->
+  <section class="contact-coordonnees" data-scroll>
+    <div class="container">
+      <div class="coordonnees-flex">
+        <div class="coordonnees-text animate-fade-in" data-scroll>
+          <h2>Nos coordonnées</h2>
+          <div class="coordonnee-item">
+            <div class="coordonnee-icon">📍</div>
+            <div class="coordonnee-content">
+              <strong>Adresse :</strong>
+              <p>Kinindo Ouest, Avenue Beraka, N°30 — Bujumbura, Burundi</p>
+            </div>
+          </div>
+          <div class="coordonnee-item">
+            <div class="coordonnee-icon">📞</div>
+            <div class="coordonnee-content">
+              <strong>Téléphones :</strong>
+              <p><a href="tel:+25777510647">+257 77 510 647</a> / <a href="tel:+25761343682">+257 61 343 682</a></p>
+            </div>
+          </div>
+          <div class="coordonnee-item">
+            <div class="coordonnee-icon">✉️</div>
+            <div class="coordonnee-content">
+              <strong>E-mail :</strong>
+              <p><a href="mailto:crex.bdi@gmail.com">crex.bdi@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="coordonnee-item">
+            <div class="coordonnee-icon">🕓</div>
+            <div class="coordonnee-content">
+              <strong>Horaires d'ouverture :</strong>
+              <p>Lundi – Vendredi : 08h00 – 19h00</p>
+              <p>Samedi : 09h00 – 14h00</p>
+              <p>Dimanche : Fermé</p>
+            </div>
+          </div>
+        </div>
+        <div class="coordonnees-map-preview animate-fade-in with-delay-1" data-scroll>
+          <div class="map-preview-wrapper">
+            <iframe 
+              src="https://www.google.com/maps?q=-3.404847,29.349306&hl=fr&z=16&output=embed" 
+              width="100%" 
+              height="300" 
+              allowfullscreen="" 
+              loading="lazy" 
+              title="Carte Google Maps - Localisation du Centre CREx à Kinindo Ouest, Avenue Beraka N°30, Bujumbura">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION CARTE GOOGLE MAPS -->
+  <section class="contact-map-section" data-scroll>
+    <div class="container">
+      <div class="map-section-content animate-fade-up" data-scroll>
+        <h2>Comment nous trouver</h2>
+        <p>Notre centre est situé au cœur de Bujumbura, facilement accessible depuis toutes les directions.</p>
+        <div class="map-embed-container">
+          <!-- Google Maps Embed (fonctionne sans clé API) -->
+          <div class="google-map-container">
+            <iframe 
+              src="https://www.google.com/maps?q=-3.404847,29.349306&hl=fr&z=16&output=embed" 
+              width="100%" 
+              height="450" 
+              allowfullscreen="" 
+              loading="lazy" 
+              title="Carte Google Maps - Localisation du Centre CREx à Kinindo Ouest, Avenue Beraka N°30, Bujumbura">
+            </iframe>
+          </div>
+          <div class="map-info">
+            <p><strong>📍 Coordonnées GPS :</strong> Latitude -3.404847, Longitude 29.349306</p>
+            <p><strong>📍 Adresse :</strong> Kinindo Ouest, Avenue Beraka N°30 — Bujumbura, Burundi</p>
+            <p>
+              <a href="https://www.google.com/maps/search/?api=1&query=-3.404847,29.349306" 
+                 target="_blank" 
+                 rel="noopener"
+                 class="btn-primary">
+                <span>📍 Ouvrir dans Google Maps</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION FORMULAIRE DE CONTACT -->
+  <section id="contact-form" class="contact-form-section" data-scroll>
+    <div class="container">
+      <div class="form-section-content animate-fade-up" data-scroll>
+        <h2>Envoyez-nous un message</h2>
+        <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+        <form class="contact-form-main" action="contact.php" method="post" id="contactForm">
+          <div class="form-group">
+            <label for="nom">Nom complet <span class="required">*</span></label>
+            <input type="text" id="nom" name="nom" required aria-required="true">
+            <span class="error-message" id="nom-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required aria-required="true">
+            <span class="error-message" id="email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Téléphone (facultatif)</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="Ex: +257 77 510 647">
+            <span class="error-message" id="telephone-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp (facultatif)</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: +257 77 510 647">
+            <span class="error-message" id="whatsapp-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="sujet">Objet (facultatif)</label>
+            <input type="text" id="sujet" name="sujet">
+          </div>
+           <!-- Champ honeypot anti-spam (caché pour les utilisateurs, visible pour les bots) -->
+           <div class="honeypot-field" aria-hidden="true">
+             <label for="website">Ne pas remplir ce champ</label>
+             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+           </div>
+           <div class="form-group">
+             <label for="message">Message <span class="required">*</span></label>
+             <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+             <span class="error-message" id="message-error"></span>
+           </div>
+          <button type="submit" class="btn-primary btn-submit">
+            <span>Envoyer le message</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+        
+        <!-- SECTION CONFIRMATION OU MESSAGE D'ERREUR -->
+        <div id="form-message" class="form-message hidden"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">CREx - Centre d'Excellence</div>
+        <div class="footer-contact">
+          <p><strong>📍 Adresse :</strong> Kinindo Ouest, Avenue Beraka N°30 — Bujumbura, Burundi</p>
+          <p><strong>☎️ Téléphone :</strong> <a href="tel:+25777510647">+257 77 510 647</a> / <a href="tel:+25761343682">+257 61 343 682</a></p>
+          <p><strong>✉️ Email :</strong> <a href="mailto:crex.bdi@gmail.com">crex.bdi@gmail.com</a></p>
+        </div>
+        <div class="footer-social">
+          <h3>Suivez-nous</h3>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://wa.me/25777510647" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">© 2025 CREx – Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="contact-form.js"></script>
+</body>
+</html>

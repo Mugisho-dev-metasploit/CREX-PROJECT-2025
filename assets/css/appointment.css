@@ -1,0 +1,413 @@
+/* ============================================
+   Appointment Page Styles - CREx
+   Styles pour la page de prise de rendez-vous
+   ============================================ */
+
+/* Import Theme Variables */
+@import url('../css/theme-variables.css');
+
+:root {
+  /* Variables de compatibilité */
+  --primary-blue: var(--color-primary);
+  --primary-dark: var(--color-primary-dark);
+  --success-green: var(--color-success);
+  --info-cyan: var(--color-info);
+  --warning-yellow: var(--color-warning);
+}
+
+.appointment-hero {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+  color: var(--text-on-colored-bg);
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.appointment-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.3;
+}
+
+.appointment-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.appointment-form-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+}
+
+.form-step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.form-step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e9ecef;
+  z-index: 0;
+}
+
+.step-item {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e9ecef;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.step-item.active .step-circle {
+  background: var(--primary-blue);
+  color: var(--text-on-primary);
+  transform: scale(1.1);
+}
+
+.step-item.completed .step-circle {
+  background: var(--success-green);
+  color: var(--text-inverse);
+}
+
+.step-label {
+  font-size: 0.875rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.step-item.active .step-label {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-floating label {
+  color: #6c757d;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.service-card {
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 0.75rem;
+}
+
+.service-card:hover {
+  border-color: var(--primary-blue);
+  background: rgba(0, 123, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.service-card.selected {
+  border-color: var(--primary-blue);
+  background: rgba(0, 123, 255, 0.1);
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+  color: var(--text-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-box i {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+  border: none;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.alert {
+  border-radius: 12px;
+  border: none;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.floating-label-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.floating-label-group input:focus ~ label,
+.floating-label-group input:not(:placeholder-shown) ~ label,
+.floating-label-group select:focus ~ label,
+.floating-label-group select:not([value=""]) ~ label {
+  top: -10px;
+  left: 12px;
+  font-size: 0.75rem;
+  color: var(--primary-blue);
+  background: white;
+  padding: 0 0.5rem;
+}
+
+.floating-label-group label {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: #6c757d;
+  background: white;
+}
+
+.form-control,
+.form-select {
+  padding-top: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+}
+
+textarea.form-control {
+  min-height: 120px;
+}
+
+/* Appointment-specific classes */
+.appointment-badge-text {
+  font-size: 0.9rem;
+}
+
+.appointment-textarea {
+  height: 120px;
+}
+
+/* Service cards grid layout */
+#serviceSelection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+#serviceSelection .service-card {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  #serviceSelection {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Dark Mode Support - Improved Contrast
+   ============================================ */
+
+[data-theme="dark"] .appointment-form-card,
+html.dark-mode .appointment-form-card {
+  background: #1A1F2E;
+  border: 1px solid #3A3F4E;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .form-step-indicator::before,
+html.dark-mode .form-step-indicator::before {
+  background: #3A3F4E;
+}
+
+[data-theme="dark"] .step-circle,
+html.dark-mode .step-circle {
+  background: #3A3F4E;
+  color: #C8C9CC;
+}
+
+[data-theme="dark"] .step-item.active .step-circle,
+html.dark-mode .step-item.active .step-circle {
+  background: #5BB8E0;
+  color: var(--text-on-primary);
+}
+
+[data-theme="dark"] .step-item.completed .step-circle,
+html.dark-mode .step-item.completed .step-circle {
+  background: #4ADE80;
+  color: var(--text-inverse);
+}
+
+[data-theme="dark"] .step-label,
+html.dark-mode .step-label {
+  color: #9A9BA3;
+}
+
+[data-theme="dark"] .step-item.active .step-label,
+html.dark-mode .step-item.active .step-label {
+  color: #5BB8E0;
+}
+
+[data-theme="dark"] .form-floating label,
+html.dark-mode .form-floating label {
+  color: #9A9BA3;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select,
+html.dark-mode .form-control,
+html.dark-mode .form-select {
+  background: #232838;
+  border-color: #3A3F4E;
+  color: #F0F0F0;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus,
+html.dark-mode .form-control:focus,
+html.dark-mode .form-select:focus {
+  border-color: #5BB8E0;
+  box-shadow: 0 0 0 0.2rem rgba(91, 184, 224, 0.25);
+  background: #2A3040;
+}
+
+[data-theme="dark"] .service-card,
+html.dark-mode .service-card {
+  background: #1A1F2E;
+  border-color: #3A3F4E;
+  color: #F0F0F0;
+}
+
+[data-theme="dark"] .service-card:hover,
+html.dark-mode .service-card:hover {
+  border-color: #5BB8E0;
+  background: rgba(91, 184, 224, 0.1);
+}
+
+[data-theme="dark"] .service-card.selected,
+html.dark-mode .service-card.selected {
+  border-color: #5BB8E0;
+  background: rgba(91, 184, 224, 0.2);
+}
+
+[data-theme="dark"] .info-box,
+html.dark-mode .info-box {
+  background: linear-gradient(135deg, rgba(91, 184, 224, 0.15) 0%, rgba(91, 184, 224, 0.08) 100%);
+  border-left-color: #5BB8E0;
+}
+
+[data-theme="dark"] .info-box i,
+html.dark-mode .info-box i {
+  color: #5BB8E0;
+}
+
+[data-theme="dark"] .floating-label-group label,
+html.dark-mode .floating-label-group label {
+  color: #9A9BA3;
+  background: #232838;
+}
+
+[data-theme="dark"] .floating-label-group input:focus ~ label,
+[data-theme="dark"] .floating-label-group input:not(:placeholder-shown) ~ label,
+[data-theme="dark"] .floating-label-group select:focus ~ label,
+[data-theme="dark"] .floating-label-group select:not([value=""]) ~ label,
+html.dark-mode .floating-label-group input:focus ~ label,
+html.dark-mode .floating-label-group input:not(:placeholder-shown) ~ label,
+html.dark-mode .floating-label-group select:focus ~ label,
+html.dark-mode .floating-label-group select:not([value=""]) ~ label {
+  color: #5BB8E0;
+  background: #232838;
+}
+
+[data-theme="dark"] .alert,
+html.dark-mode .alert {
+  border: 1px solid #3A3F4E;
+}
+
+[data-theme="dark"] .alert-success,
+html.dark-mode .alert-success {
+  background: rgba(74, 222, 128, 0.15);
+  color: #6EE7B7;
+  border-color: #4ADE80;
+}
+
+[data-theme="dark"] .alert-danger,
+html.dark-mode .alert-danger {
+  background: rgba(248, 113, 113, 0.15);
+  color: #FCA5A5;
+  border-color: #F87171;
+}
+
+[data-theme="dark"] .alert-info,
+html.dark-mode .alert-info {
+  background: rgba(96, 165, 250, 0.15);
+  color: #93C5FD;
+  border-color: #60A5FA;
+}

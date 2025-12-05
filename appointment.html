@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prenez rendez-vous en ligne avec le Centre CREx. Réservez votre consultation facilement et rapidement.">
+  <title>Prise de rendez-vous - CREx</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <script>
+    // Inline theme initialization to prevent FOUC
+    (function(){const t=localStorage.getItem('crex-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const h=document.documentElement;h.classList.remove('dark-mode','light-mode');h.setAttribute('data-theme',t);h.classList.add(t==='dark'?'dark-mode':'light-mode');})();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/appointment.css">
+  
+  <script src="assets/js/theme-manager.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header animate-slide-down">
+    <div class="container header-flex">
+      <div class="logo animate-fade-in">
+        <img src="https://cdn.pixabay.com/photo/2017/04/03/01/41/logo-2191012_1280.png" alt="Logo CREx" height="48">
+        <span>CREx</span>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-item"><a href="index.html">Accueil</a></li>
+          <li class="nav-item"><a href="about.html">À propos</a></li>
+          <li class="nav-item"><a href="services.php">Services</a></li>
+          <li class="nav-item"><a href="gallery.php">Galerie</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+          <li class="nav-item"><a href="appointment.html" class="current">Rendez-vous</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" aria-label="Basculer le thème" type="button">
+        <span class="theme-icon moon-icon">🌙</span>
+      </button>
+      <button class="burger" aria-label="Menu mobile">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="appointment-hero">
+    <div class="container appointment-hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <span class="badge bg-light text-primary mb-3 px-4 py-2 appointment-badge-text">
+            <i class="fas fa-calendar-check me-2"></i>Réservation en ligne
+          </span>
+          <h1 class="display-4 fw-bold mb-4">Prenez rendez-vous facilement</h1>
+          <p class="lead mb-0">Réservez votre consultation en quelques clics. Notre équipe vous contactera rapidement pour confirmer votre rendez-vous.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM SECTION -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="appointment-form-card">
+            <!-- Success/Error Messages -->
+            <div id="formMessage" class="alert alert-dismissible fade d-none" role="alert">
+              <span id="formMessageText"></span>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+            </div>
+            
+            <!-- Step Indicator -->
+            <div class="form-step-indicator mb-4">
+              <div class="step-item active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Informations</div>
+              </div>
+              <div class="step-item" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Service & Date</div>
+              </div>
+              <div class="step-item" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-label">Confirmation</div>
+              </div>
+            </div>
+            
+            <form id="appointmentForm" action="appointment.php" method="POST" novalidate>
+              <!-- Step 1: Personal Information -->
+              <div class="form-step active" id="step1">
+                <h3 class="mb-4"><i class="fas fa-user me-2 text-primary"></i>Vos informations personnelles</h3>
+                
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom complet" required>
+                      <label for="nom">Nom complet <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez entrer votre nom complet.</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Téléphone" required>
+                      <label for="telephone">Téléphone <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez entrer un numéro de téléphone valide.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                      <label for="email">Adresse email <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez entrer une adresse email valide.</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input type="date" class="form-control" id="date_naissance" name="date_naissance" placeholder="Date de naissance">
+                      <label for="date_naissance">Date de naissance (optionnel)</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <select class="form-select" id="genre" name="genre">
+                        <option value="non_specifie">Non spécifié</option>
+                        <option value="homme">Homme</option>
+                        <option value="femme">Femme</option>
+                        <option value="autre">Autre</option>
+                      </select>
+                      <label for="genre">Genre (optionnel)</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="nationalite" name="nationalite" placeholder="Nationalité">
+                      <label for="nationalite">Nationalité (optionnel)</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="profession" name="profession" placeholder="Profession">
+                      <label for="profession">Profession (optionnel)</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <h4 class="mt-4 mb-3"><i class="fas fa-map-marker-alt me-2 text-primary"></i>Adresse</h4>
+                
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="adresse_complete" name="adresse_complete" placeholder="Adresse complète" required>
+                      <label for="adresse_complete">Adresse complète <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez entrer votre adresse complète.</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="code_postal" name="code_postal" placeholder="Code postal">
+                      <label for="code_postal">Code postal (optionnel)</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" required>
+                      <label for="ville">Ville <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez entrer votre ville.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="pays" name="pays" placeholder="Pays" value="Burundi" required>
+                      <label for="pays">Pays <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez entrer votre pays.</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="assurance_sante" name="assurance_sante" placeholder="Assurance santé">
+                      <label for="assurance_sante">Assurance santé (optionnel)</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="info-box d-flex align-items-start">
+                  <i class="fas fa-info-circle mt-1"></i>
+                  <div>
+                    <strong>Confidentialité garantie</strong>
+                    <p class="mb-0 small">Vos informations sont sécurisées et ne seront utilisées que pour vous contacter concernant votre rendez-vous et pour préparer votre consultation.</p>
+                  </div>
+                </div>
+                
+                <div class="text-end mt-4">
+                  <button type="button" class="btn btn-primary btn-lg" onclick="nextStep(2)">
+                    Suivant <i class="fas fa-arrow-right ms-2"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Step 2: Service & Date -->
+              <div class="form-step" id="step2">
+                <h3 class="mb-4"><i class="fas fa-calendar-alt me-2 text-primary"></i>Service et disponibilité</h3>
+                
+                <div class="mb-4">
+                  <label class="form-label fw-bold mb-3">Type de service <span class="text-danger">*</span></label>
+                  <div id="serviceSelection">
+                    <div class="service-card" data-service="consultation_medicale">
+                      <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                      <h6 class="mb-1">Consultation médicale</h6>
+                      <p class="small text-muted mb-0">Évaluation complète et plan de rééducation personnalisé</p>
+                    </div>
+                    <div class="service-card" data-service="kinesitherapie">
+                      <div class="service-icon"><i class="fas fa-user-md"></i></div>
+                      <h6 class="mb-1">Kinésithérapie</h6>
+                      <p class="small text-muted mb-0">Rétablissement de la mobilité et renforcement musculaire</p>
+                    </div>
+                    <div class="service-card" data-service="readaptation">
+                      <div class="service-icon"><i class="fas fa-walking"></i></div>
+                      <h6 class="mb-1">Réadaptation</h6>
+                      <p class="small text-muted mb-0">Retour à l'autonomie et performance physique</p>
+                    </div>
+                    <div class="service-card" data-service="psychologie">
+                      <div class="service-icon"><i class="fas fa-brain"></i></div>
+                      <h6 class="mb-1">Psychologie clinique</h6>
+                      <p class="small text-muted mb-0">Soutien psychologique et thérapie individuelle</p>
+                    </div>
+                    <div class="service-card" data-service="orthopedie">
+                      <div class="service-icon"><i class="fas fa-bone"></i></div>
+                      <h6 class="mb-1">Orthopédie et rééducation</h6>
+                      <p class="small text-muted mb-0">Appareillages et amélioration de la posture</p>
+                    </div>
+                    <div class="service-card" data-service="ergotherapie">
+                      <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+                      <h6 class="mb-1">Ergothérapie</h6>
+                      <p class="small text-muted mb-0">Adaptation aux activités de la vie quotidienne</p>
+                    </div>
+                    <div class="service-card" data-service="developpement_enfant">
+                      <div class="service-icon"><i class="fas fa-baby"></i></div>
+                      <h6 class="mb-1">Développement de l'enfant</h6>
+                      <p class="small text-muted mb-0">Suivi du développement moteur et sensoriel</p>
+                    </div>
+                    <div class="service-card" data-service="therapies_groupe">
+                      <div class="service-icon"><i class="fas fa-users"></i></div>
+                      <h6 class="mb-1">Thérapies de groupe</h6>
+                      <p class="small text-muted mb-0">Ateliers collectifs et bien-être social</p>
+                    </div>
+                    <div class="service-card" data-service="personnes_agees">
+                      <div class="service-icon"><i class="fas fa-user-clock"></i></div>
+                      <h6 class="mb-1">Accompagnement personnes âgées</h6>
+                      <p class="small text-muted mb-0">Soins spécialisés pour seniors</p>
+                    </div>
+                    <div class="service-card" data-service="autre">
+                      <div class="service-icon"><i class="fas fa-question-circle"></i></div>
+                      <h6 class="mb-1">Autre</h6>
+                      <p class="small text-muted mb-0">Autre type de service</p>
+                    </div>
+                  </div>
+                  <input type="hidden" id="service_type" name="service_type" required>
+                  <div class="invalid-feedback d-block d-none" id="serviceError">Veuillez sélectionner un service.</div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="form-floating">
+                    <textarea class="form-control appointment-textarea" id="motif_consultation" name="motif_consultation" placeholder="Motif de consultation (optionnel)"></textarea>
+                    <label for="motif_consultation">Motif de consultation détaillé (optionnel)</label>
+                    <small class="form-text text-muted">Décrivez brièvement la raison de votre consultation</small>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input type="date" class="form-control" id="date_souhaitee" name="date_souhaitee" required>
+                      <label for="date_souhaitee">Date souhaitée <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez sélectionner une date valide.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                      <input type="time" class="form-control" id="heure_souhaitee" name="heure_souhaitee" min="08:00" max="19:00" required>
+                      <label for="heure_souhaitee">Heure souhaitée <span class="text-danger">*</span></label>
+                      <div class="invalid-feedback">Veuillez sélectionner une heure entre 08h00 et 19h00.</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="form-floating">
+                    <textarea class="form-control appointment-textarea" id="message" name="message" placeholder="Message (optionnel)"></textarea>
+                    <label for="message">Message ou commentaires (optionnel)</label>
+                  </div>
+                </div>
+                
+                <div class="info-box d-flex align-items-start">
+                  <i class="fas fa-clock mt-1"></i>
+                  <div>
+                    <strong>Horaires d'ouverture</strong>
+                    <p class="mb-0 small">
+                      Lundi - Vendredi: 08h00 - 19h00<br>
+                      Samedi: 09h00 - 14h00<br>
+                      Dimanche: Fermé
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                  <button type="button" class="btn btn-outline-secondary btn-lg" onclick="prevStep(1)">
+                    <i class="fas fa-arrow-left me-2"></i>Précédent
+                  </button>
+                  <button type="button" class="btn btn-primary btn-lg" onclick="nextStep(3)">
+                    Suivant <i class="fas fa-arrow-right ms-2"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Step 3: Confirmation -->
+              <div class="form-step" id="step3">
+                <h3 class="mb-4"><i class="fas fa-check-circle me-2 text-success"></i>Confirmation</h3>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title mb-3"><i class="fas fa-user me-2"></i>Informations personnelles</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <p class="mb-2"><strong>Nom complet:</strong> <span id="confirmNom"></span></p>
+                        <p class="mb-2"><strong>Téléphone:</strong> <span id="confirmTelephone"></span></p>
+                        <p class="mb-2"><strong>Email:</strong> <span id="confirmEmail"></span></p>
+                        <p id="confirmDateNaissance" class="mb-2 d-none"><strong>Date de naissance:</strong> <span></span></p>
+                        <p id="confirmGenre" class="mb-2 d-none"><strong>Genre:</strong> <span></span></p>
+                      </div>
+                      <div class="col-md-6">
+                        <p id="confirmNationalite" class="mb-2 d-none"><strong>Nationalité:</strong> <span></span></p>
+                        <p id="confirmProfession" class="mb-2 d-none"><strong>Profession:</strong> <span></span></p>
+                        <p id="confirmAssurance" class="mb-2 d-none"><strong>Assurance santé:</strong> <span></span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title mb-3"><i class="fas fa-map-marker-alt me-2"></i>Adresse</h5>
+                    <p class="mb-1"><strong>Adresse:</strong> <span id="confirmAdresse"></span></p>
+                    <p class="mb-1"><strong>Ville:</strong> <span id="confirmVille"></span></p>
+                    <p id="confirmCodePostal" class="mb-1 d-none"><strong>Code postal:</strong> <span></span></p>
+                    <p class="mb-0"><strong>Pays:</strong> <span id="confirmPays"></span></p>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title mb-3"><i class="fas fa-calendar me-2"></i>Détails du rendez-vous</h5>
+                    <p class="mb-1"><strong>Service:</strong> <span id="confirmService"></span></p>
+                    <p class="mb-1"><strong>Date souhaitée:</strong> <span id="confirmDate"></span></p>
+                    <p class="mb-1"><strong>Heure souhaitée:</strong> <span id="confirmHeure"></span></p>
+                    <p id="confirmMotif" class="mb-2 d-none mt-2"><strong>Motif de consultation:</strong><br><span></span></p>
+                    <p id="confirmMessage" class="mb-0 d-none"><strong>Message/Commentaires:</strong><br><span></span></p>
+                  </div>
+                </div>
+                
+                <div class="alert alert-info">
+                  <i class="fas fa-info-circle me-2"></i>
+                  <strong>Important:</strong> Vous recevrez un email de confirmation dans les 24 heures. Notre équipe vous contactera pour valider votre rendez-vous.
+                </div>
+                
+                <!-- Honeypot field (anti-spam) -->
+                <label for="website" class="visually-hidden">Ne pas remplir ce champ</label>
+                <input type="text" id="website" name="website" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                
+                <div class="d-flex justify-content-between mt-4">
+                  <button type="button" class="btn btn-outline-secondary btn-lg" onclick="prevStep(2)">
+                    <i class="fas fa-arrow-left me-2"></i>Précédent
+                  </button>
+                  <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                    <span id="submitText">
+                      <i class="fas fa-paper-plane me-2"></i>Envoyer la demande
+                    </span>
+                    <span id="submitSpinner" class="spinner-border spinner-border-sm ms-2 d-none"></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">CREx - Centre d'Excellence</div>
+        <div class="footer-contact">
+          <p><strong>📍 Adresse :</strong> Kinindo Ouest, Avenue Beraka N°30 — Bujumbura, Burundi</p>
+          <p><strong>☎️ Téléphone :</strong> <a href="tel:+25777510647">+257 77 510 647</a> / <a href="tel:+25761343682">+257 61 343 682</a></p>
+          <p><strong>✉️ Email :</strong> <a href="mailto:crex.bdi@gmail.com">crex.bdi@gmail.com</a></p>
+        </div>
+        <div class="footer-social">
+          <h3>Suivez-nous</h3>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://wa.me/25777510647" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">© 2025 CREx – Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <script src="script.js"></script>
+  <script src="appointment-form.js"></script>
+  <script src="assets/js/appointment.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centre CREx - Accueil</title>
+  <script>
+    // Inline theme initialization to prevent FOUC
+    (function(){const t=localStorage.getItem('crex-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const h=document.documentElement;h.classList.remove('dark-mode','light-mode');h.setAttribute('data-theme',t);h.classList.add(t==='dark'?'dark-mode':'light-mode');})();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  <script src="assets/js/theme-manager.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header animate-slide-down">
+    <div class="container header-flex">
+      <div class="logo animate-fade-in">
+        <img src="https://cdn.pixabay.com/photo/2017/04/03/01/41/logo-2191012_1280.png" alt="Logo CREx" height="48">
+        <span>CREx</span>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-item"><a href="index.html" class="current">Accueil</a></li>
+          <li class="nav-item"><a href="about.html">À propos</a></li>
+          <li class="nav-item"><a href="services.php">Services</a></li>
+          <li class="nav-item"><a href="gallery.php">Galerie</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+          <li class="nav-item"><a href="appointment.html">Rendez-vous</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" aria-label="Basculer le thème" type="button">
+        <span class="theme-icon moon-icon">🌙</span>
+      </button>
+      <button class="burger" aria-label="Menu mobile">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero hero-slider" data-scroll>
+    <div class="hero-slides">
+      <div class="hero-slide hero-slide-1 active"></div>
+      <div class="hero-slide hero-slide-2"></div>
+      <div class="hero-slide hero-slide-3"></div>
+      <div class="hero-slide hero-slide-4"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text animate-fade-up" data-scroll>
+        <span class="hero-badge animate-bounce">✨ Bienvenue au CREx</span>
+        <h1 class="hero-title">Retrouvez <span class="highlight-text">mouvement</span>, <span class="highlight-text">force</span> et <span class="highlight-text">équilibre</span></h1>
+        <p class="hero-description">Un accompagnement professionnel, humain et personnalisé pour votre bien-être.</p>
+        <div class="hero-cta-group">
+          <a class="btn-primary pulse-animation" href="services.php">
+            <span>Découvrir nos services</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn-secondary animate-fade-in with-delay-2" href="contact.html">Prendre rendez-vous</a>
+        </div>
+      </div>
+      <div class="hero-image"></div>
+    </div>
+    <div class="hero-scroll-indicator animate-bounce">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+    <div class="slider-indicators">
+      <span class="indicator active" data-slide="0"></span>
+      <span class="indicator" data-slide="1"></span>
+      <span class="indicator" data-slide="2"></span>
+      <span class="indicator" data-slide="3"></span>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="about-preview" data-scroll>
+    <div class="container about-preview-flex">
+      <div class="about-preview-image animate-fade-in" data-scroll>
+        <div class="image-wrapper">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=70" alt="Centre CREx - Équipe professionnelle">
+          <div class="image-decoration"></div>
+        </div>
+      </div>
+      <div class="about-preview-text animate-fade-up with-delay-1" data-scroll>
+        <span class="section-label">Qui sommes-nous ?</span>
+        <h2>Bienvenue au Centre de Réadaptation et d'Excellence</h2>
+        <p class="lead-text">Notre mission est de redonner à chacun la liberté de ses mouvements et la confiance en son corps.</p>
+        <p>Grâce à une équipe pluridisciplinaire et un suivi sur mesure, nous allions compétence médicale et approche humaine.</p>
+        <ul class="about-advantages">
+          <li class="advantage-item">
+            <div class="advantage-icon">✓</div>
+            <span>Équipe expérimentée et certifiée</span>
+          </li>
+          <li class="advantage-item">
+            <div class="advantage-icon">✓</div>
+            <span>Technologies de rééducation modernes</span>
+          </li>
+          <li class="advantage-item">
+            <div class="advantage-icon">✓</div>
+            <span>Approche globale du bien-être</span>
+          </li>
+        </ul>
+        <a href="about.html" class="btn-link-enhanced">
+          En savoir plus sur le CREx
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW (3 PILIERS) -->
+  <section class="services-preview" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>Nos Services</span>
+        <h2 class="animate-fade-in" data-scroll>Découvrez nos 3 piliers d'excellence</h2>
+        <p class="section-intro animate-fade-in with-delay-1" data-scroll>Des prises en charge personnalisées, fondées sur l'expertise pluridisciplinaire du CREx.</p>
+      </div>
+      <div class="service-cards">
+        <div class="service-card service-card-enhanced animate-scale-in with-delay-1" data-scroll>
+          <div class="service-number">01</div>
+          <div class="service-icon">
+            <img src="img/service-kinesiotherapie.jpg" alt="Kinésithérapie">
+          </div>
+          <h3>Kinésithérapie</h3>
+          <p>Soulagement des douleurs, amélioration de la mobilité grâce à des techniques éprouvées.</p>
+          <a class="btn-link-arrow" href="services.php#kinesitherapie">
+            <span>En savoir plus</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+        <div class="service-card service-card-enhanced animate-scale-in with-delay-2" data-scroll>
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <img src="img/service-readaptation.jpg" alt="Réadaptation">
+          </div>
+          <h3>Réadaptation</h3>
+          <p>Retrouver autonomie et performance physique avec un accompagnement sur-mesure.</p>
+          <a class="btn-link-arrow" href="services.php#readaptation">
+            <span>En savoir plus</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+        <div class="service-card service-card-enhanced animate-scale-in with-delay-3" data-scroll>
+          <div class="service-number">03</div>
+          <div class="service-icon">
+            <img src="img/service-psychologie.jpg" alt="Accompagnement psychologique">
+          </div>
+          <h3>Accompagnement psychologique</h3>
+          <p>Soutien émotionnel et motivationnel pour un bien-être global et durable.</p>
+          <a class="btn-link-arrow" href="services.php#psychologie">
+            <span>En savoir plus</span>
+            <span class="arrow-icon">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI CHOISIR CREX -->
+  <section class="why-crex" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>Nos Atouts</span>
+        <h2 class="animate-fade-in" data-scroll>Pourquoi choisir CREx ?</h2>
+      </div>
+      <div class="why-crex-grid">
+        <div class="why-card why-card-enhanced animate-fade-up with-delay-1" data-scroll>
+          <div class="why-icon-wrapper">
+            <div class="why-icon">🩺</div>
+          </div>
+          <h3>Expertise médicale</h3>
+          <p>Professionnels qualifiés et certifiés dans leur domaine pour garantir des soins de qualité.</p>
+        </div>
+        <div class="why-card why-card-enhanced animate-fade-up with-delay-2" data-scroll>
+          <div class="why-icon-wrapper">
+            <div class="why-icon">💬</div>
+          </div>
+          <h3>Écoute et empathie</h3>
+          <p>Une approche humaine et bienveillante à chaque étape de votre parcours.</p>
+        </div>
+        <div class="why-card why-card-enhanced animate-fade-up with-delay-3" data-scroll>
+          <div class="why-icon-wrapper">
+            <div class="why-icon">⚙️</div>
+          </div>
+          <h3>Équipements modernes</h3>
+          <p>Technologies de pointe pour une rééducation efficace et rapide.</p>
+        </div>
+        <div class="why-card why-card-enhanced animate-fade-up with-delay-4" data-scroll>
+          <div class="why-icon-wrapper">
+            <div class="why-icon">🤝</div>
+          </div>
+          <h3>Suivi personnalisé</h3>
+          <p>Un parcours adapté à vos besoins spécifiques avec un accompagnement dédié.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section class="testimonials" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>Témoignages</span>
+        <h2 class="animate-fade-in" data-scroll>Ils nous font confiance</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card testimonial-card-enhanced animate-scale-in with-delay-1" data-scroll>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">Grâce au CREx, j'ai retrouvé ma mobilité après une fracture du genou. L'équipe est professionnelle et à l'écoute.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar">
+              <span>A</span>
+            </div>
+            <div class="testimonial-info">
+              <p class="testimonial-author">Aline N.</p>
+              <p class="testimonial-role">Patiente</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card testimonial-card-enhanced animate-scale-in with-delay-2" data-scroll>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">Un accompagnement exceptionnel ! Les séances de réadaptation m'ont permis de reprendre le sport en toute sécurité.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar">
+              <span>M</span>
+            </div>
+            <div class="testimonial-info">
+              <p class="testimonial-author">Marc T.</p>
+              <p class="testimonial-role">Sportif</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card testimonial-card-enhanced animate-scale-in with-delay-3" data-scroll>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">Le soutien psychologique combiné à la kinésithérapie a été déterminant dans ma guérison. Merci CREx !</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar">
+              <span>S</span>
+            </div>
+            <div class="testimonial-info">
+              <p class="testimonial-author">Sophie K.</p>
+              <p class="testimonial-role">Patiente</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">CREx - Centre d'Excellence</div>
+        <div class="footer-contact">
+          <p><strong>📍 Adresse :</strong> Kinindo Ouest, Avenue Beraka N°30 — Bujumbura, Burundi</p>
+          <p><strong>☎️ Téléphone :</strong> <a href="tel:+25777510647">+257 77 510 647</a> / <a href="tel:+25761343682">+257 61 343 682</a></p>
+          <p><strong>✉️ Email :</strong> <a href="mailto:crex.bdi@gmail.com">crex.bdi@gmail.com</a></p>
+        </div>
+        <div class="footer-social">
+          <h3>Suivez-nous</h3>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://wa.me/25777510647" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">© 2025 CREx – Tous droits réservés.</div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

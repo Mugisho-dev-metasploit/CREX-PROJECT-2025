@@ -1,0 +1,140 @@
+<?php
+/**
+ * Configuration de Production - CREx
+ * 
+ * INSTRUCTIONS :
+ * 1. Copiez ce fichier vers config.production.php
+ * 2. Remplissez les valeurs avec vos identifiants de production
+ * 3. Ne commitez JAMAIS config.production.php dans Git
+ * 4. Ce fichier doit être dans .gitignore
+ */
+
+// ============================================
+// Configuration de la base de données - PRODUCTION
+// ============================================
+
+// Paramètres de connexion MySQL (PRODUCTION)
+define('DB_HOST', 'localhost');              // Adresse du serveur MySQL (ex: mysql.votreserveur.com)
+define('DB_NAME', 'crex_db');                // Nom de la base de données
+define('DB_USER', 'votre_utilisateur');      // Nom d'utilisateur MySQL
+define('DB_PASS', 'votre_mot_de_passe_fort'); // Mot de passe MySQL (FORT et SÉCURISÉ)
+define('DB_CHARSET', 'utf8mb4');             // Encodage UTF-8
+
+// ============================================
+// Configuration de l'environnement
+// ============================================
+
+// Mode de développement (false en production)
+define('DEBUG_MODE', false);
+
+// Afficher les erreurs (false en production)
+define('DISPLAY_ERRORS', false);
+
+// Log des erreurs (true en production)
+define('LOG_ERRORS', true);
+
+// Chemin vers les logs
+define('LOG_PATH', __DIR__ . '/logs/');
+
+// ============================================
+// Configuration de sécurité
+// ============================================
+
+// Clé secrète pour les sessions (GÉNÉRER UNE CLÉ UNIQUE)
+// Utilisez : openssl_random_pseudo_bytes(32) ou bin2hex(random_bytes(32))
+define('SESSION_SECRET', 'GÉNÉRER_UNE_CLÉ_ALÉATOIRE_ICI_32_CARACTÈRES_MINIMUM');
+
+// Durée de session (en secondes)
+define('SESSION_LIFETIME', 3600); // 1 heure
+
+// ============================================
+// Configuration de l'URL
+// ============================================
+
+// URL de base du site (sans slash final)
+define('BASE_URL', 'https://votredomaine.com');
+
+// Chemin de base (si le site est dans un sous-dossier)
+define('BASE_PATH', ''); // Ex: '/crex' si dans un sous-dossier
+
+// ============================================
+// Configuration email
+// ============================================
+
+// Email de contact principal
+define('CONTACT_EMAIL', 'contact@votredomaine.com');
+
+// Email de l'administrateur
+define('ADMIN_EMAIL', 'admin@votredomaine.com');
+
+// Configuration SMTP (si nécessaire)
+define('SMTP_HOST', 'smtp.votredomaine.com');
+define('SMTP_PORT', 587);
+define('SMTP_USER', 'noreply@votredomaine.com');
+define('SMTP_PASS', 'mot_de_passe_smtp');
+define('SMTP_SECURE', 'tls'); // 'tls' ou 'ssl'
+
+// ============================================
+// Configuration des uploads
+// ============================================
+
+// Taille maximale des fichiers uploadés (en octets)
+define('MAX_UPLOAD_SIZE', 5242880); // 5 MB
+
+// Types de fichiers autorisés pour les images
+define('ALLOWED_IMAGE_TYPES', ['image/jpeg', 'image/png', 'image/webp', 'image/gif']);
+
+// ============================================
+// Configuration de la base de données
+// ============================================
+
+/**
+ * Fonction de connexion PDO sécurisée à la base de données
+ *
+ * @return PDO Instance de connexion PDO
+ * @throws PDOException En cas d'erreur de connexion
+ */
+function getDBConnection() {
+    try {
+        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+            PDO::ATTR_PERSISTENT         => false,
+        ];
+
+        $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        return $pdo;
+    } catch (PDOException $e) {
+        // Enregistrer l'erreur dans les logs
+        if (LOG_ERRORS && defined('LOG_PATH')) {
+            $logFile = LOG_PATH . 'db_errors_' . date('Y-m-d') . '.log';
+            error_log(date('Y-m-d H:i:s') . " - Erreur DB: " . $e->getMessage() . "\n", 3, $logFile);
+        }
+
+        // En production, message générique
+        if (DISPLAY_ERRORS) {
+            die("Erreur de connexion à la base de données.<br><br>" .
+                "<strong>Erreur:</strong> " . htmlspecialchars($e->getMessage()));
+        } else {
+            die("Erreur de connexion à la base de données. Veuillez contacter l'administrateur.");
+        }
+    }
+}
+
+/**
+ * Fonction pour tester la connexion à la base de données
+ *
+ * @return bool True si la connexion réussit, False sinon
+ */
+function testDBConnection() {
+    try {
+        $pdo = getDBConnection();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+?>
+

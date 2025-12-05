@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos du Centre CREx</title>
+  <script>
+    // Inline theme initialization to prevent FOUC
+    (function(){const t=localStorage.getItem('crex-theme')||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const h=document.documentElement;h.classList.remove('dark-mode','light-mode');h.setAttribute('data-theme',t);h.classList.add(t==='dark'?'dark-mode':'light-mode');})();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  <script src="assets/js/theme-manager.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="main-header animate-slide-down">
+    <div class="container header-flex">
+      <div class="logo animate-fade-in">
+        <img src="https://cdn.pixabay.com/photo/2017/04/03/01/41/logo-2191012_1280.png" alt="Logo CREx" height="48">
+        <span>CREx</span>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-item"><a href="index.html">Accueil</a></li>
+          <li class="nav-item"><a href="about.html" class="current">À propos</a></li>
+          <li class="nav-item"><a href="services.php">Services</a></li>
+          <li class="nav-item"><a href="gallery.php">Galerie</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+          <li class="nav-item"><a href="appointment.html">Rendez-vous</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" aria-label="Basculer le thème" type="button">
+        <span class="theme-icon moon-icon">🌙</span>
+      </button>
+      <button class="burger" aria-label="Menu mobile">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="about-hero about-hero-slider">
+    <div class="hero-slides">
+      <div class="hero-slide about-slide-1 active"></div>
+      <div class="hero-slide about-slide-2"></div>
+      <div class="hero-slide about-slide-3"></div>
+      <div class="hero-slide about-slide-4"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container about-hero__content">
+      <div class="about-hero__text animate-fade-up" data-scroll>
+        <span class="hero-badge animate-bounce">✨ Découvrez CREx</span>
+        <h1>À propos de nous</h1>
+        <p>Découvrez l'histoire, la mission et les valeurs du Centre de Réadaptation et d'Excellence (CREx)</p>
+        <div class="hero-stats">
+          <div class="stat-item animate-scale-in with-delay-1">
+            <span class="stat-number">+1500</span>
+            <span class="stat-label">Patients</span>
+          </div>
+          <div class="stat-item animate-scale-in with-delay-2">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Spécialistes</span>
+          </div>
+          <div class="stat-item animate-scale-in with-delay-3">
+            <span class="stat-number">95%</span>
+            <span class="stat-label">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-indicators">
+      <span class="indicator active" data-slide="0"></span>
+      <span class="indicator" data-slide="1"></span>
+      <span class="indicator" data-slide="2"></span>
+      <span class="indicator" data-slide="3"></span>
+    </div>
+  </section>
+
+  <!-- MISSION ET VISION -->
+  <section class="mission-vision-about" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>Notre Raison d'Être</span>
+        <h2 class="animate-fade-in" data-scroll>Mission & Vision</h2>
+      </div>
+      <div class="mission-vision-grid">
+        <div class="mission-card mission-card-enhanced animate-fade-up" data-scroll>
+          <div class="card-icon-wrapper">
+            <div class="mission-icon">🎯</div>
+          </div>
+          <h2>Notre mission</h2>
+          <p class="lead-mission">Redonner à chacun la liberté de ses mouvements et la confiance en son corps.</p>
+          <p>Notre mission est d'offrir des soins personnalisés, humains et professionnels pour accompagner chaque patient dans sa rééducation et son bien-être global.</p>
+          <div class="card-decoration"></div>
+        </div>
+        <div class="vision-card vision-card-enhanced animate-fade-up with-delay-1" data-scroll>
+          <div class="card-icon-wrapper">
+            <div class="vision-icon">👁️</div>
+          </div>
+          <h2>Notre vision</h2>
+          <p class="lead-vision">Devenir une référence en réadaptation et kinésithérapie en Afrique centrale, en combinant expertise, innovation et compassion.</p>
+          <div class="card-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALEURS -->
+  <section class="values-section" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>Ce Qui Nous Guide</span>
+        <h2 class="animate-fade-in" data-scroll>Nos valeurs fondamentales</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card value-card-enhanced animate-scale-in with-delay-1" data-scroll>
+          <div class="value-icon-wrapper">
+            <div class="value-icon">🤝</div>
+          </div>
+          <h3>Respect et dignité</h3>
+          <p>Chaque patient est unique et mérite une écoute attentive et personnalisée.</p>
+          <div class="value-border"></div>
+        </div>
+        <div class="value-card value-card-enhanced animate-scale-in with-delay-2" data-scroll>
+          <div class="value-icon-wrapper">
+            <div class="value-icon">💙</div>
+          </div>
+          <h3>Bienveillance et empathie</h3>
+          <p>Une approche humaine au service du corps et de l'esprit.</p>
+          <div class="value-border"></div>
+        </div>
+        <div class="value-card value-card-enhanced animate-scale-in with-delay-3" data-scroll>
+          <div class="value-icon-wrapper">
+            <div class="value-icon">🧠</div>
+          </div>
+          <h3>Excellence professionnelle</h3>
+          <p>Des praticiens certifiés et passionnés par leur métier.</p>
+          <div class="value-border"></div>
+        </div>
+        <div class="value-card value-card-enhanced animate-scale-in with-delay-4" data-scroll>
+          <div class="value-icon-wrapper">
+            <div class="value-icon">⚙️</div>
+          </div>
+          <h3>Innovation et progrès</h3>
+          <p>Utilisation des meilleures techniques de rééducation.</p>
+          <div class="value-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉQUIPE -->
+  <section class="equipe" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>Nos Experts</span>
+        <h2 class="animate-fade-in" data-scroll>Notre Équipe Pluridisciplinaire</h2>
+        <p class="section-intro animate-fade-in with-delay-1" data-scroll>Une équipe de 11 professionnels certifiés et expérimentés, dévoués à votre rétablissement</p>
+      </div>
+      <div class="team-grid">
+        <!-- Membre 1 -->
+        <div class="team-card team-card-pro animate-fade-up" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Dr. Aimée Ndayisenga">
+            <div class="team-badge">Fondatrice</div>
+          </div>
+          <div class="team-info">
+            <h3>Dr. Aimée Ndayisenga</h3>
+            <p class="team-role">Kinésithérapeute Principale & Directrice</p>
+            <div class="team-experience">
+              <span class="experience-badge">12 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Diplômée de l'Université de Kinshasa avec spécialisation en rééducation neurologique. Pionnière de la kinésithérapie moderne au Burundi, elle a formé plus de 50 professionnels et traité plus de 2000 patients. Experte en rééducation post-AVC et traumatismes médullaires.</p>
+          </div>
+        </div>
+
+        <!-- Membre 2 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-1" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Ir. David Hakizimana">
+          </div>
+          <div class="team-info">
+            <h3>Ir. David Hakizimana</h3>
+            <p class="team-role">Orthopédiste & Prothésiste</p>
+            <div class="team-experience">
+              <span class="experience-badge">10 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Ingénieur biomédical formé en Belgique. Spécialisé dans la conception et fabrication d'orthèses et prothèses sur-mesure. A équipé plus de 500 patients avec des solutions innovantes adaptées aux conditions locales.</p>
+          </div>
+        </div>
+
+        <!-- Membre 3 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-2" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Mme. Grâce Uwimana">
+          </div>
+          <div class="team-info">
+            <h3>Mme. Grâce Uwimana</h3>
+            <p class="team-role">Psychologue Clinicienne</p>
+            <div class="team-experience">
+              <span class="experience-badge">8 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Master en psychologie clinique de l'Université du Burundi. Spécialisée en thérapie cognitivo-comportementale et gestion de la douleur chronique. Accompagne les patients dans leur reconstruction psychologique post-traumatique.</p>
+          </div>
+        </div>
+
+        <!-- Membre 4 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-3" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Dr. Patrice Muvunyi">
+          </div>
+          <div class="team-info">
+            <h3>Dr. Patrice Muvunyi</h3>
+            <p class="team-role">Kinésithérapeute du Sport</p>
+            <div class="team-experience">
+              <span class="experience-badge">7 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Diplômé de l'INSEPS Dakar. Expert en rééducation sportive et prévention des blessures. A travaillé avec plusieurs équipes nationales africaines. Spécialiste en récupération post-opératoire et renforcement musculaire.</p>
+          </div>
+        </div>
+
+        <!-- Membre 5 -->
+        <div class="team-card team-card-pro animate-fade-up" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Mme. Sarah Nkurunziza">
+          </div>
+          <div class="team-info">
+            <h3>Mme. Sarah Nkurunziza</h3>
+            <p class="team-role">Physiothérapeute & Massothérapeute</p>
+            <div class="team-experience">
+              <span class="experience-badge">9 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Formée en France en techniques manuelles avancées. Spécialisée en drainage lymphatique, réflexologie et thérapies manuelles. Experte en traitement des troubles musculo-squelettiques et lombalgies chroniques.</p>
+          </div>
+        </div>
+
+        <!-- Membre 6 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-1" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/men/26.jpg" alt="M. Eric Niyonkuru">
+          </div>
+          <div class="team-info">
+            <h3>M. Eric Niyonkuru</h3>
+            <p class="team-role">Ostéopathe D.O.</p>
+            <div class="team-experience">
+              <span class="experience-badge">6 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Diplômé d'ostéopathie en Suisse. Approche holistique du corps humain. Spécialisé en ostéopathie crânienne et viscérale. Traite efficacement migraines, troubles digestifs et douleurs chroniques.</p>
+          </div>
+        </div>
+
+        <!-- Membre 7 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-2" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Claire Mushimiyimana">
+          </div>
+          <div class="team-info">
+            <h3>Dr. Claire Mushimiyimana</h3>
+            <p class="team-role">Kinésithérapeute Respiratoire</p>
+            <div class="team-experience">
+              <span class="experience-badge">8 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Spécialiste en kinésithérapie respiratoire et cardiaque. Formée au Rwanda et en France. Prend en charge les pathologies respiratoires chroniques, post-COVID et préparation pré/post-opératoire thoracique.</p>
+          </div>
+        </div>
+
+        <!-- Membre 8 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-3" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="M. Pascal Rugamba">
+          </div>
+          <div class="team-info">
+            <h3>M. Pascal Rugamba</h3>
+            <p class="team-role">Ergothérapeute</p>
+            <div class="team-experience">
+              <span class="experience-badge">5 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Formation en ergothérapie au Kenya. Aide les patients à retrouver leur autonomie dans les activités quotidiennes. Spécialisé en réadaptation gériatrique et adaptation du domicile. Conception d'aides techniques personnalisées.</p>
+          </div>
+        </div>
+
+        <!-- Membre 9 -->
+        <div class="team-card team-card-pro animate-fade-up" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Mme. Léa Munezero">
+          </div>
+          <div class="team-info">
+            <h3>Mme. Léa Munezero</h3>
+            <p class="team-role">Nutritionniste Diététicienne</p>
+            <div class="team-experience">
+              <span class="experience-badge">6 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Diplômée en nutrition thérapeutique. Élabore des programmes nutritionnels adaptés à chaque pathologie. Spécialisée en nutrition sportive, gestion du poids et maladies métaboliques. Approche holistique du bien-être.</p>
+          </div>
+        </div>
+
+        <!-- Membre 10 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-1" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="M. Louis Bizimana">
+          </div>
+          <div class="team-info">
+            <h3>M. Louis Bizimana</h3>
+            <p class="team-role">Kinésithérapeute Pédiatrique</p>
+            <div class="team-experience">
+              <span class="experience-badge">7 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Spécialisé en rééducation pédiatrique et développement psychomoteur. Formé en Tanzanie avec certification en thérapie Bobath. Prend en charge les retards de développement, paralysie cérébrale et troubles neuromoteurs chez l'enfant.</p>
+          </div>
+        </div>
+
+        <!-- Membre 11 -->
+        <div class="team-card team-card-pro animate-fade-up with-delay-2" data-scroll>
+          <div class="team-image-wrapper">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mme. Divine Keza">
+          </div>
+          <div class="team-info">
+            <h3>Mme. Divine Keza</h3>
+            <p class="team-role">Assistante Kinésithérapeute & Coordinatrice</p>
+            <div class="team-experience">
+              <span class="experience-badge">4 ans d'expérience</span>
+            </div>
+            <p class="team-desc">Formation en techniques de soins et gestion administrative. Assure la coordination des rendez-vous et le suivi des dossiers patients. Support précieux dans les séances de rééducation collective et individuelle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="live-counters" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>En Direct</span>
+        <h2 class="animate-fade-in" data-scroll>Notre Impact en Temps Réel</h2>
+        <p class="section-intro animate-fade-in with-delay-1" data-scroll>Découvrez notre activité en direct</p>
+      </div>
+      <div class="counters-grid">
+        <div class="counter-card animate-scale-in with-delay-1" data-scroll>
+          <div class="counter-icon">👥</div>
+          <div class="counter-value" data-target="1547" data-suffix="">0</div>
+          <div class="counter-label">Patients Traités</div>
+          <div class="counter-live">
+            <span class="live-dot"></span>
+            <span>En direct</span>
+          </div>
+        </div>
+        <div class="counter-card animate-scale-in with-delay-2" data-scroll>
+          <div class="counter-icon">⭐</div>
+          <div class="counter-value" data-target="98" data-suffix="%">0</div>
+          <div class="counter-label">Taux de Satisfaction</div>
+          <div class="counter-live">
+            <span class="live-dot"></span>
+            <span>En direct</span>
+          </div>
+        </div>
+        <div class="counter-card animate-scale-in with-delay-3" data-scroll>
+          <div class="counter-icon">📅</div>
+          <div class="counter-value" data-target="342" data-suffix="">0</div>
+          <div class="counter-label">Rendez-vous ce Mois</div>
+          <div class="counter-live">
+            <span class="live-dot"></span>
+            <span>En direct</span>
+          </div>
+        </div>
+        <div class="counter-card animate-scale-in with-delay-4" data-scroll>
+          <div class="counter-icon">🌐</div>
+          <div class="counter-value" data-target="2847" data-suffix=" +" data-increment="true">0</div>
+          <div class="counter-label">Visiteurs Aujourd'hui</div>
+          <div class="counter-live">
+            <span class="live-dot pulse"></span>
+            <span>Actuellement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES PATIENTS -->
+  <section class="testimonials-about" data-scroll>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label animate-fade-in" data-scroll>Témoignages</span>
+        <h2 class="animate-fade-in" data-scroll>Ce que disent nos patients</h2>
+        <p class="section-intro animate-fade-in with-delay-1" data-scroll>Des avis authentiques qui témoignent de notre engagement</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card testimonial-card-enhanced animate-scale-in with-delay-1" data-scroll>
+          <div class="testimonial-rating">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">Après mon accident, j'avais perdu espoir de remarcher normalement. L'équipe du CREx m'a accompagné avec professionnalisme et bienveillance. Aujourd'hui, je cours à nouveau !</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar">
+              <span>A</span>
+            </div>
+            <div class="testimonial-info">
+              <p class="testimonial-author">Aline Ndayisenga</p>
+              <p class="testimonial-role">Rééducation post-accident</p>
+              <p class="testimonial-date">Il y a 2 semaines</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card testimonial-card-enhanced animate-scale-in with-delay-2" data-scroll>
+          <div class="testimonial-rating">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">Le soutien psychologique combiné à la kinésithérapie a vraiment fait la différence. Je me sens plus fort mentalement et physiquement. Merci infiniment !</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar">
+              <span>M</span>
+            </div>
+            <div class="testimonial-info">
+              <p class="testimonial-author">Marc Tuyishime</p>
+              <p class="testimonial-role">Accompagnement global</p>
+              <p class="testimonial-date">Il y a 1 mois</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card testimonial-card-enhanced animate-scale-in with-delay-3" data-scroll>
+          <div class="testimonial-rating">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <div class="quote-icon">"</div>
+          <p class="testimonial-text">Des professionnels à l'écoute, des équipements modernes et une approche personnalisée. Le CREx dépasse toutes mes attentes. Je recommande vivement !</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar">
+              <span>S</span>
+            </div>
+            <div class="testimonial-info">
+              <p class="testimonial-author">Sophie Kamikazi</p>
+              <p class="testimonial-role">Kinésithérapie sportive</p>
+              <p class="testimonial-date">Il y a 3 semaines</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta-section" data-scroll>
+    <div class="container">
+      <div class="cta-content animate-fade-up" data-scroll>
+        <div class="cta-text">
+          <span class="cta-badge">🎯 Prêt à Commencer ?</span>
+          <h2>Prenez Votre Santé en Main Aujourd'hui</h2>
+          <p>Rejoignez les centaines de patients qui ont retrouvé leur mobilité et leur confiance grâce à notre accompagnement personnalisé.</p>
+          <ul class="cta-benefits">
+            <li>✓ Première consultation gratuite</li>
+            <li>✓ Équipe pluridisciplinaire certifiée</li>
+            <li>✓ Suivi personnalisé et adapté</li>
+            <li>✓ Équipements de pointe</li>
+          </ul>
+        </div>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn-cta-primary pulse-animation">
+            <span>📞 Prendre Rendez-vous</span>
+          </a>
+          <a href="services.php" class="btn-cta-secondary">
+            <span>📋 Découvrir Nos Services</span>
+          </a>
+          <div class="cta-contact-info">
+            <p><strong>📞 Appelez-nous :</strong> <a href="tel:+25777510647">+257 77 510 647</a></p>
+            <p><strong>✉️ Email :</strong> <a href="mailto:crex.bdi@gmail.com">crex.bdi@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">CREx - Centre d'Excellence</div>
+        <div class="footer-contact">
+          <p><strong>📍 Adresse :</strong> Kinindo Ouest, Avenue Beraka N°30 — Bujumbura, Burundi</p>
+          <p><strong>☎️ Téléphone :</strong> <a href="tel:+25777510647">+257 77 510 647</a> / <a href="tel:+25761343682">+257 61 343 682</a></p>
+          <p><strong>✉️ Email :</strong> <a href="mailto:crex.bdi@gmail.com">crex.bdi@gmail.com</a></p>
+        </div>
+        <div class="footer-social">
+          <h3>Suivez-nous</h3>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://wa.me/25777510647" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">© 2025 CREx – Tous droits réservés.</div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
